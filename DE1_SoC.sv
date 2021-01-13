@@ -54,7 +54,7 @@ endmodule  // DE1_SoC
 // Counter with increment and reset signal, only increments if not increment on prev clock.
 module inc_ctr #(parameter MAXVAL)
 (
-	input wire clk, reset,
+    input wire clk, reset,
     input wire inc,
     output logic [$clog2(MAXVAL)-1:0] count
 );
@@ -64,7 +64,7 @@ module inc_ctr #(parameter MAXVAL)
     wire [$clog2(MAXVAL)-1:0] maxval = MAXVAL;
 
     reg [$clog2(MAXVAL)-1:0] inner;
-	reg prev_inc;
+    reg prev_inc;
 
     // Incrementer logic
     always_comb 
@@ -73,19 +73,19 @@ module inc_ctr #(parameter MAXVAL)
 
     // register update
     always_ff @(posedge clk) begin
-		inner <= reset ? zero : count;
-		prev_inc <= inc;
-	end
+	inner <= reset ? zero : count;
+	prev_inc <= inc;
+    end
 endmodule
 
 // divided_clocks[0]=25MHz, [1]=12.5Mhz, ... [23]=3Hz, [24]=1.5Hz, [25]=0.75Hz 
 module clock_divider (clock, divided_clocks);
-	input clock;
-	output reg [31:0] divided_clocks;
+    input clock;
+    output reg [31:0] divided_clocks;
 	
-	initial
-		divided_clocks = 0;
+    initial
+        divided_clocks = 0;
 		
-	always_ff @(posedge clock)
-		divided_clocks = divided_clocks + 1;
+    always_ff @(posedge clock)
+        divided_clocks = divided_clocks + 1;
 endmodule 
