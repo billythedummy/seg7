@@ -28,8 +28,8 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW);
 	wire [4:0] a_u; // uncasted
 	seg7::seg7_a_t a;
 	assign a = seg7::seg7_a_t'(a_u);
-	wire [3:0] b;
-	wire [3:0] o;
+	wire b;
+	wire [2:0] o;
 	wire [3:0] x;
 	inc_ctr #(.MAXVAL(5'd22)) ctr_a(.clk, .reset, .inc(inc_a), .count(a_u));
 	inc_ctr #(.MAXVAL(1'b1)) ctr_b(.clk, .reset, .inc(inc_b), .count(b));
