@@ -119,14 +119,14 @@ module seg7o (
 );
     always_comb
         case (val)
-            4'h0: leds = SEG7_DISP_ZERO;
-            4'h1: leds = SEG7_DISP_ONE;
-            4'h2: leds = SEG7_DISP_TWO;
-            4'h3: leds = SEG7_DISP_THREE;
-            4'h4: leds = SEG7_DISP_FOUR;
-            4'h5: leds = SEG7_DISP_FIVE;
-            4'h6: leds = SEG7_DISP_SIX;
-            4'h7: leds = SEG7_DISP_SEVEN;
+            3'o0: leds = SEG7_DISP_ZERO;
+            3'o1: leds = SEG7_DISP_ONE;
+            3'o2: leds = SEG7_DISP_TWO;
+            3'o3: leds = SEG7_DISP_THREE;
+            3'o4: leds = SEG7_DISP_FOUR;
+            3'o5: leds = SEG7_DISP_FIVE;
+            3'o6: leds = SEG7_DISP_SIX;
+            3'o7: leds = SEG7_DISP_SEVEN;
         endcase	
 endmodule  // seg7o
 
